@@ -34,31 +34,31 @@ function HabitCard({ habit, onBump, onEdit, onDelete, t }) {
     >
       {burst && <Confetti />}
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3 sm:gap-4">
         <GripVertical size={15} className={`${t.muted} cursor-grab active:cursor-grabbing shrink-0`} />
 
         <div
-          className="w-11 h-11 rounded-2xl flex items-center justify-center shrink-0"
+          className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center shrink-0"
           style={{ background: color.soft }}
         >
-          <Icon size={20} style={{ color: color.ring }} />
+          <Icon size={18} style={{ color: color.ring }} />
         </div>
 
         <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between gap-2">
-            <div className="min-w-0">
+          <div className="flex items-start justify-between gap-2">
+            <button onClick={() => onEdit(habit)} className="flex-1 min-w-0 text-left">
               <p className={`text-sm font-medium truncate ${t.strong}`}>{habit.name}</p>
               {habit.reminderTime && (
                 <p className={`text-[10px] flex items-center gap-1 mt-0.5 ${t.muted}`}>
                   <Bell size={9} /> {habit.reminderTime}
                 </p>
               )}
-            </div>
-            <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
-              <button onClick={() => onEdit(habit)} className={`${t.muted} hover:text-violet-400 p-1`}>
+            </button>
+            <div className="flex items-center gap-0.5 opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity shrink-0">
+              <button onClick={() => onEdit(habit)} className={`${t.muted} hover:text-violet-400 p-1.5`}>
                 <Pencil size={14} />
               </button>
-              <button onClick={() => onDelete(habit)} className={`${t.muted} hover:text-rose-400 p-1`}>
+              <button onClick={() => onDelete(habit)} className={`${t.muted} hover:text-rose-400 p-1.5`}>
                 <Trash2 size={14} />
               </button>
             </div>
@@ -71,14 +71,14 @@ function HabitCard({ habit, onBump, onEdit, onDelete, t }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={() => onBump(habit.id, -1)}
             className={`w-7 h-7 rounded-full flex items-center justify-center ${t.track} ${t.strong}`}
           >
             <Minus size={13} />
           </button>
-          <span className={`text-sm font-semibold w-14 text-center ${t.strong}`}>
+          <span className={`text-sm font-semibold w-10 sm:w-14 text-center ${t.strong}`}>
             {habit.current}/{habit.target}
           </span>
           <button
