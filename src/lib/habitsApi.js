@@ -18,6 +18,16 @@ function fromRow(row) {
     days: JSON.parse(row.days || "[]"),
     sortOrder: row.sort_order,
     lastResetDate: row.last_reset_date,
+    cue: row.cue || "",
+    craving: row.craving || "",
+    response: row.response || "",
+    reward: row.reward || "",
+    location: row.location || "",
+    durationMinutes: row.duration_minutes || 0,
+    contractText: row.contract_text || "",
+    contractDeadline: row.contract_deadline || "",
+    contractSignedAt: row.contract_signed_at || null,
+    identityId: row.identity_id || null,
   };
 }
 
@@ -34,6 +44,16 @@ function toRow(habit, userId) {
     stack_after: habit.stackAfter || "",
     reminder_time: habit.reminderTime || "",
     days: JSON.stringify(habit.days || []),
+    cue: habit.cue || "",
+    craving: habit.craving || "",
+    response: habit.response || "",
+    reward: habit.reward || "",
+    location: habit.location || "",
+    duration_minutes: habit.durationMinutes || 0,
+    contract_text: habit.contractText || "",
+    contract_deadline: habit.contractDeadline || null,
+    contract_signed_at: habit.contractSignedAt || null,
+   identity_id: habit.identityId || null,
   };
 }
 
